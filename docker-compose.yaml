@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - 127.0.0.1:9999:9999
+    volumes:
+      - ./:/notebooks:rw
+    entrypoint: start-notebook.sh --KernelManager.autorestart=False --NotebookApp.notebook_dir=/notebooks --NotebookApp.port=9999 --NotebookApp.password=''
+    networks:
+      - default
+      - redis
+      - elasticsearch
+    restart: "no"
+
+  redis:
+    image: redis:4-alpine
+    ports:
+      - 6379
+    networks:
+      - redis
+    restart: "no"
+
+  elasticsearch:
+    image: elasticsearch:7.4.2
+    ports:
+      - 9200
+      - 9300
+    networks:
+      - elasticsearch
+    environment:
+      discovery.type: single-node
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    restart: "no"
+  
+networks:
+  default:
+  redis:
+  elasticsearch:
+
+volumes:
+  esdata:
+    driver: local

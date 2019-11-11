@@ -16,6 +16,13 @@ is recommended.
 Once you have the two databases up and running, fill the variables in the notebook to let the
 Python clients successfully connect.
 
+#### Docker support
+Thanks to Luca Bigon, we now have docker-compose support. To run it with Docker:
+
+1. `docker-compose build` to build the Jupyter container;
+2. `docker-compose up --force-recreate` to start the stack (Jupyter, Redis and ElasticSearch); a link (e.g. `http://127.0.0.1`) with a temporary token will be printed in the cli;
+3. `docker-compose down` to shut down all the containers.
+
 #### Data
 There are two main embedding examples in the code, word embeddings and product embeddings:
 

@@ -5,29 +5,33 @@ Personalization with deep learning in 100 lines of code
 This repository contains the companion code to the "Clothes in Space" blog post.
 
 ### How to run the notebook
-#### Coding
+#### Install dependencies (manual)
 Running the full notebook in the original architecture requires Python 3 with 
-dependencies installed and access to Elasticsearch >7.4 and [Redis](https://redis.io/): 
-to get Elastic up 
-and running locally and quickly, 
-the [docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/docker.html) setup
-is recommended. 
+dependencies installed and access to Elasticsearch (or Coveo) and [Redis](https://redis.io/): 
+to get Elastic up and running locally and quickly, the [docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/docker.html) setup
+is recommended.
 
-Once you have the two databases up and running, fill the variables in the notebook to let the
-Python clients successfully connect.
-
-#### Docker support
-Thanks to Luca Bigon, we now have docker-compose support. To run it with Docker:
+#### Docker support (semi-auto)
+Thanks to Luca Bigon, we now have docker-compose support. To run the POC with Docker:
 
 1. `docker-compose build` to build the Jupyter container;
-2. `docker-compose up --force-recreate` to start the stack (Jupyter, Redis and ElasticSearch); a link (e.g. `http://127.0.0.1`) with a temporary token will be printed in the cli;
+2. `docker-compose up --force-recreate` to start the stack; a link (e.g. `http://127.0.0.1`) with a temporary token will be printed in the cli;
 3. `docker-compose down` to shut down all the containers.
+
+#### Coding
+Once you have everything up and running, fill the variables in the notebook to let the
+Python clients successfully connect to the databases (fill also catalog-specific variables you know
+based on your specific input file). Please note that depending on your exact setup 
+(Redis or memory, Elasticsearch or Coveo index, etc.), you may want to 
+use specific portions of the notebook: for this reason, different "versions" of key functions are clearly
+marked in the code.
 
 #### Data
 There are two main embedding examples in the code, word embeddings and product embeddings:
 
 * word embeddings in the text were generated with the 1bn word corpus. A copy of the file can be downloaded 
-[here](https://drive.google.com/file/d/1XrmkevxgSc-jtsBXszavKvPfrPTx2iv0/view?usp=sharing);
+[here](https://drive.google.com/file/d/1XrmkevxgSc-jtsBXszavKvPfrPTx2iv0/view?usp=sharing); please note that 
+if you use the Docker setup the file will be downloaded automatically;
 
 * product embeddings in the text were generated through real session data from commerce stores. 
 To create embeddings from your session data you will need to provide data from your store. 
@@ -37,6 +41,10 @@ if your session data are formatted in the same way, the repo can be run with no 
 To run the notebook end-to-end you will also need to provide a "catalog" file and 
 some test SKUs (i.e. product identifiers) to visualize analogies and similarities. 
 For your convenience a sample catalog file is included in the repo. 
+
+*Please note that the sample files (catalog and sessions) are NOT enough to run the notebook end-to-end: 
+those files are just provided as syntactic examples of \*real\* files you may want to use to reproduce the 
+personalization effect explained in the original blog post.* 
 
 ### Status
 This is a WIP repo for my latest blog post. Come back soon for the full version!

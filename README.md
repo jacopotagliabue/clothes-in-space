@@ -36,7 +36,9 @@ if your session data are formatted in the same way, the repo can be run with no 
 
 * word embeddings in the text were generated with the 1bn word corpus. A copy of the file can be downloaded 
 [here](https://drive.google.com/file/d/1XrmkevxgSc-jtsBXszavKvPfrPTx2iv0/view?usp=sharing); please note that 
-if you use the Docker setup the file will be downloaded automatically and available in the `/tmp/corpus.txt` path.
+if you use the Docker setup the file will be downloaded automatically and available in the `/tmp/corpus.txt` path. The
+variable `MAX_SENTENCES` can be used to limit the amount of sentences for training, greatly speeding up model 
+building.
 
 To run the notebook end-to-end you will also need to provide a "catalog" file and 
 some test SKUs (i.e. product identifiers) to visualize analogies and similarities. 

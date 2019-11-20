@@ -2,7 +2,7 @@
 Personalization with deep learning in 100 lines of code
 
 ### Overview
-This repository contains the companion code to the "Clothes in Space" blog post.
+This repository contains the companion code to the ["Clothes in Space" blog post](https://blog.coveo.com/).
 
 ### How to run the notebook
 #### Install dependencies (manual)

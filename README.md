@@ -2,7 +2,7 @@
 Personalization with deep learning in 100 lines of code
 
 ### Overview
-This repository contains the companion code to the ["Clothes in Space" blog post](https://blog.coveo.com/).
+This repository contains the companion code to the ["Clothes in Space" blog post](https://blog.coveo.com/clothes-in-space-real-time-personalization-in-less-than-100-lines-of-code/).
 
 ### How to run the notebook
 #### Install dependencies (manual)
@@ -56,9 +56,6 @@ To use your own `catalog` and `sessions` files, follow the sample files provided
 * `catalog.csv` is a csv file with four columns `sku`, `name`, `target`, `image`: `sku` is the product identifier;
 * `sessions.txt` is a TAB separated txt file storing a session on each line; each session has a numerical id first and then
 the list of SKUs (matching the content of `catalog.csv`, obviously) that were viewed in that session.
-
-### Status
-This is a WIP repo for my latest blog post. Come back soon for the full version!
 
 ### Acknowledgments
 Thanks to [Luca Bigon](https://github.com/bigluck) for adding `docker-compose` support and for the

@@ -1,4 +1,4 @@
-redis==3.3.11
+redis==4.4.4
 elasticsearch==7.0.5
 gensim==3.8.1
 scikit-learn==0.21.3
